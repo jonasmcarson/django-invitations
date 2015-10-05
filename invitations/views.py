@@ -45,8 +45,8 @@ class AcceptInvite(SingleObjectMixin, View):
 
     def post(self, *args, **kwargs):
         self.object = invitation = self.get_object()
-        invitation.accepted = True
-        invitation.save()
+        #invitation.accepted = True
+        #invitation.save()
         get_adapter().stash_verified_email(self.request, invitation.email)
 
         signals.invite_accepted.send(sender=self.__class__,
